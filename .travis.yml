@@ -12,7 +12,6 @@ script:
 - cd build
 - cmake ..
 - cmake --build .
-- sudo -E env "PATH=$PATH" make test
 - cmake --build . --target package
 - git clone https://boristestov:$GITHUB_TOKEN@github.com/boristestov/$PROJECT_NAME.github.io.git
 - cd $PROJECT_NAME.github.io
