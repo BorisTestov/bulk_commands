@@ -1,13 +1,5 @@
 #include "block_processor.h"
 
-BlockProcessor::BlockProcessor() :
-    Observer(),
-    _blockCounter(0),
-    _timeStart(0),
-    _store()
-{
-}
-
 BlockProcessor::~BlockProcessor()
 {
     //dtor

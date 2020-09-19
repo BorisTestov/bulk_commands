@@ -5,24 +5,30 @@ Observer::Observer()
     //ctor
 }
 
+Observer::~Observer()
+{}
+
 void Observer::parseCommand(const std::string& command)
 {
     if (command.empty())
         handleCommand(command);
     else
-        switch (command.at(0))
+    {
+        char startChar = command.at(0);
+        if (startChar == blockStart)
         {
-            case controlChars::blockStart:
-            {
-                startBlock();
-                break;
-            }
-            case controlChars::blockFinish:
-            {
-                finishBlock();
-                break;
-            }
-            default:
-                handleCommand(command);
+            startBlock();
+            return;
         }
+        else if (startChar == blockFinish)
+        {
+            finishBlock();
+            return;
+        }
+        else
+        {
+            handleCommand(command);
+            return;
+        }
+    }
 }

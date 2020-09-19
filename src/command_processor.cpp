@@ -13,7 +13,7 @@ CommandProcessor::~CommandProcessor()
     if (!_store.isEmpty())
     {
         _store.printCommands();
-        void logBlock();
+        logBlock();
         _store.clear();
     }
 }

@@ -9,7 +9,7 @@
 class BlockProcessor : public Observer
 {
 public:
-    BlockProcessor();
+    BlockProcessor() = default;
     virtual ~BlockProcessor();
 
     /**
@@ -19,9 +19,9 @@ public:
     std::time_t getTime() const;
 
 protected:
-    virtual void handleCommand(const std::string& command) override;
-    virtual void startBlock() override;
-    virtual void finishBlock() override;
+    void handleCommand(const std::string& command) override;
+    void startBlock() override;
+    void finishBlock() override;
 
     /**
      * @brief Метод логгирования блока команд
@@ -29,7 +29,7 @@ protected:
     void logBlock();
 
 private:
-    size_t _blockCounter;
-    std::time_t _timeStart;
+    size_t _blockCounter = 0;
+    std::time_t _timeStart = 0;
     CommandContainer _store;
 };

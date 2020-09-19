@@ -27,9 +27,9 @@ public:
     std::time_t getTime() const;
 
 protected:
-    virtual void handleCommand(const std::string& command) override;
-    virtual void startBlock() override;
-    virtual void finishBlock() override;
+    void handleCommand(const std::string& command) override;
+    void startBlock() override;
+    void finishBlock() override;
 
     /**
      * @brief Метод логгирования комманд в формате bulk<время получения первой команды из блока>.log

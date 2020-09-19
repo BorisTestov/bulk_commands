@@ -1,7 +1,8 @@
 #include "command_container.h"
 
-CommandContainer::CommandContainer(size_t size) :
-    _commands()
+#include <sstream>
+
+CommandContainer::CommandContainer(size_t size)
 {
     _commands.reserve(size);
 }
@@ -15,11 +16,17 @@ void CommandContainer::printCommands(std::ostream& out) const
 {
     if (!_commands.empty())
     {
-        std::string output("bulk:");
-
-        std::for_each(_commands.begin(), _commands.end(), [&output](auto command) { output += command + ","; });
-        output.resize(output.length() - 1);
-        out << output << std::endl;
+        std::stringstream output;
+        output << "bulk:";
+        for (size_t i = 0; i < _commands.size(); i++)
+        {
+            output << _commands.at(i);
+            if (i + 1 != _commands.size())
+            {
+                output << ",";
+            }
+        }
+        out << output.str() << std::endl;
     };
 }
 

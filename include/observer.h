@@ -8,13 +8,10 @@
 class Observer
 {
 public:
-    enum controlChars
-    {
-        blockStart = '{',
-        blockFinish = '}'
-    };
+    const char blockStart = '{';
+    const char blockFinish = '}';
     Observer();
-    ~Observer() = default;
+    virtual ~Observer();
 
     /**
      * @brief Метод для парсинга входной строки. Вызывается классом, который подключает обработчики

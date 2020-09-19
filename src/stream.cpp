@@ -1,7 +1,7 @@
 #include "stream.h"
 
 Stream::Stream(std::istream& user_input) :
-    _input(user_input), _observers()
+    _input(user_input)
 {}
 
 void Stream::run()
